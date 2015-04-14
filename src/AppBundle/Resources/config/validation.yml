@@ -1,0 +1,171 @@
+AppBundle\Entity\Club:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [name, description]
+            errorPath: name
+            message: 'Club with that name and description already exists'
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        description:
+            - NotNull: ~
+            - Length:
+                max: 255
+
+AppBundle\Entity\Link:
+    properties:
+        link:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        description:
+            - NotNull: ~
+            - Length:
+                max: 255
+        linkType:
+            - NotNull: ~
+            - Choice:
+                choices:  [facebook, twitter, website]
+                message:  A valid website link type must be given. Must be either facebook, twitter or website.
+
+AppBundle\Entity\BaseEntity:
+    properties:
+        published:
+            - NotNull: ~
+            - Type:
+                type: boolean
+        authorised:
+            - NotNull: ~
+            - Type:
+                type: boolean
+
+AppBundle\Entity\BaseContact:
+    properties:
+        private:
+            - NotNull: ~
+            - Type:
+                type: boolean
+        address:
+            - NotBlank: ~
+            - Type:
+                type: AppBundle\Entity\Address
+            - Valid: { traverse: true }
+
+AppBundle\Entity\Contact:
+    properties:
+        firstName:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        surname:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        role:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        title:
+            - NotBlank: ~
+            - Type:
+                type: AppBundle\Entity\Title
+            - Valid: { traverse: true }
+
+AppBundle\Entity\Address:
+    properties:
+        line1:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+        line2:
+            - NotNull: ~
+            - Length:
+                max: 255
+        line3:
+            - NotNull: ~
+            - Length:
+                max: 255
+        town:
+            - NotNull: ~
+            - Length:
+                max: 255
+        county:
+            - NotNull: ~
+            - Length:
+                max: 255
+        postcode:
+            - NotBlank: ~
+            - Length:
+                min: 4
+                max: 12
+        latitude:
+            - NotBlank: ~
+            - Type:
+                type: numeric
+        longitude:
+            - NotBlank: ~
+            - Type:
+                type: numeric
+
+AppBundle\Entity\Tag:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [name]
+            errorPath: name
+            message: 'Tag already exists'
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 50
+
+AppBundle\Entity\Venue:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+
+AppBundle\Entity\Telephone:
+    properties:
+        telephoneNumber:
+            - NotBlank: ~
+            - Length:
+                min: 5
+                max: 255
+        telephoneNumberType:
+            - NotNull: ~
+            - Length:
+                max: 255
+
+AppBundle\Entity\Timeslot:
+    properties:
+        fromTime:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+        tillTime:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+        description:
+            - NotNull: ~
+            - Length:
+                max: 255
+        timeslotDay:
+            - NotBlank: ~
+            - Type:
+                type: AppBundle\Entity\TimeslotDay
+            - Valid: { traverse: true }

@@ -1,0 +1,76 @@
+services:
+    kernel.listener.ExceptionListener:
+        class: AppBundle\Listeners\ExceptionListener
+        arguments: [@kernel]
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+    contact_service:
+        class:      AppBundle\Services\Contact
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    club_service:
+        class:      AppBundle\Services\Club
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    tag_service:
+        class:      AppBundle\Services\Tag
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    link_service:
+        class:      AppBundle\Services\Link
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    venue_service:
+        class:      AppBundle\Services\Venue
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    clubvenue_service:
+        class:      AppBundle\Services\ClubVenue
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    day_service:
+        class:      AppBundle\Services\Day
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    title_service:
+        class:      AppBundle\Services\Title
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    timeslot_service:
+        class:      AppBundle\Services\Timeslot
+        arguments:
+            entityManager: "@doctrine.orm.default_entity_manager"
+        calls:
+            - [setRouter, [@router]]
+            - [setValidator , ["@validator"]]
+    filter_service:
+        class:      AppBundle\Services\Filter
+        scope: request
+        calls:
+            - [setRequest , ["@service_container"]]
+        arguments:
+            entityManager:        "@doctrine.orm.default_entity_manager"

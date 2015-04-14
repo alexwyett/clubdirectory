@@ -1,0 +1,8 @@
+ref,day,daynumber
+timeslotday-MON,Monday,0
+timeslotday-TUE,Tuesday,1
+timeslotday-WED,Wednesday,2
+timeslotday-THU,Thursday,3
+timeslotday-FRI,Friday,4
+timeslotday-SAT,Saturday,5
+timeslotday-SUN,Sunday,6
