@@ -47,7 +47,7 @@ class Tag extends DefaultController
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function createAction()
-    {
+    {   
         $tag = $this->getTagService()->create(
             $this->getPostData(true)
         );

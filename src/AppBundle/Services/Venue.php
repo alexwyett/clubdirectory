@@ -46,12 +46,12 @@ class Venue extends Base
      */
     public function create($request)
     {
-        $contact = new \AppBundle\Entity\Venue();
-        $contact->setAuthorised(false);
-        $address = new \AppBundle\Entity\Venue();
-        $contact->setAddress($address);
+        $venue = new \AppBundle\Entity\Venue();
+        $venue->setAuthorised(false);
+        $address = new \AppBundle\Entity\Address();
+        $venue->setAddress($address);
         
-        return $this->update($contact, $request);
+        return $this->update($venue, $request);
     }
     
     /**
