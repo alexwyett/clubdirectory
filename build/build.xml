@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="symfony2-project" default="build">
+    <target name='install-fixtures' description='Installs the fixtures into the database'>
+        <exec executable="php" dir="${basedir}/../">
+            <arg line="app/console doctrine:schema:drop --force" />
+        </exec>
+
+        <exec executable="php" dir="${basedir}/../">
+            <arg line="app/console doctrine:schema:create" />
+        </exec>
+
+        <exec executable="${basedir}/../app/console">
+            <arg value='doctrine:fixtures:load' />
+            <arg value='--em=default' />
+            <arg value='--fixtures=${basedir}/../src/AppBundle/DataFixtures/ORM' />
+        </exec>
+    </target>
+</project>
