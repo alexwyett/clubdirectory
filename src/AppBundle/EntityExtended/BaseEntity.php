@@ -3,10 +3,10 @@ namespace AppBundle\EntityExtended;
 use \Doctrine\Common\Collections\Criteria;
 
 class BaseEntity extends Base
-{   
+{
     /**
      * To array function
-     * 
+     *
      * @return array
      */
     public function toArray()
@@ -65,7 +65,7 @@ class BaseEntity extends Base
             foreach ($this->getContactEmail() as $email) {
                 $emails[] = $email->toArray();
             }
-            $data['email'] = $emails;
+            $data['contactEmails'] = $emails;
             
             $telephoneNumbers = array();
             foreach ($this->getContactTelephone() as $number) {
