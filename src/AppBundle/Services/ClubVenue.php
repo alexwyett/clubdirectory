@@ -40,16 +40,23 @@ class ClubVenue extends Base
     /**
      * Create a new club venue
      * 
-     * @param \AppBundle\Entity\Club  $club  Club
-     * @param \AppBundle\Entity\Venue $venue Venue
+     * @param \AppBundle\Entity\Club  $club    Club
+     * @param stdClass                $request Request object
      * 
      * @return \AppBundle\Entity\ClubVenue
      */
-    public function createClubVenue($club, $venue)
+    public function createClubVenue($club, $request)
     {
+        if (!isset($request->venue_id)) {
+            throw new \AppBundle\Exceptions\FieldNotFoundException(
+                'Venue not specified',
+                -1
+            );
+        }
+        
         // Check venue hasn't already been added
         foreach ($club->getClubVenue() as $cv) {
-            if ($cv->getVenue() == $venue) {
+            if ($cv->getVenue()->getId() == $request->venue_id) {
                 throw new APIException(
                     'Venue has already been added to club',
                     -1,
@@ -61,7 +68,7 @@ class ClubVenue extends Base
         
         return $this->create((object) array(
             'club_id' => $club->getId(),
-            'venue_id' => $venue->getId()
+            'venue_id' => $request->venue_id
         ));
     }
     

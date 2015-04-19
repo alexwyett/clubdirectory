@@ -17,8 +17,8 @@ class Address
             'town' => $this->getTown(),
             'county' => $this->getCounty(),
             'postcode' => $this->getPostcode(),
-            'latitude' => $this->getLatitude(),
-            'longitude' => $this->getLongitude()
+            'latitude' => (float) $this->getLatitude(),
+            'longitude' => (float) $this->getLongitude()
         );
     }
 }

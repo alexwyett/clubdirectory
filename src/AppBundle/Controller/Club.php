@@ -246,20 +246,19 @@ class Club extends DefaultController
     }
     
     /**
-     * @Route("/club/{id}/venue/{vid}", name="clubvenue_add", defaults={"_format": "_json"})
+     * @Route("/club/{id}/clubvenue", name="clubvenue_add", defaults={"_format": "_json"})
      * @Method("POST")
      * @param integer $id  Club Id
-     * @param integer $vid Venue Id
      *
      * @HMAC(public=false, roles="WRITE")
      *
      * @return array
      */
-    public function addClubVenueAction($id, $vid)
+    public function addClubVenueAction($id)
     {
         $clubVenue = $this->getClubVenueService()->createClubVenue(
             $this->getClubService()->getEntityById($id),
-            $this->getVenueService()->getEntityById($vid)
+            $this->getPostData(true)
         );
         
         return $this->createdResponse(

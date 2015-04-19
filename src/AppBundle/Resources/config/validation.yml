@@ -81,9 +81,8 @@ AppBundle\Entity\Contact:
 AppBundle\Entity\Address:
     properties:
         line1:
-            - NotBlank: ~
+            - NotNull: ~
             - Length:
-                min: 2
                 max: 255
         line2:
             - NotNull: ~
@@ -102,9 +101,8 @@ AppBundle\Entity\Address:
             - Length:
                 max: 255
         postcode:
-            - NotBlank: ~
+            - NotNull: ~
             - Length:
-                min: 4
                 max: 12
         latitude:
             - NotBlank: ~
