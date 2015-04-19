@@ -97,4 +97,26 @@ class BaseEntity extends Base
         
         return $found;
     }
+    
+    /**
+     * Search for an existing contact number
+     * 
+     * @param string $number Telephone number
+     * @param string $type   Telephone number type
+     * 
+     * @return boolean
+     */
+    public function contactHasNumber($number, $type)
+    {
+        $found = false;
+        foreach ($this->getContactTelephone() as $num) {
+            if ($number == $num->getTelephoneNumber()
+                && $type == $num->getTelephoneNumberType()
+            ) {
+                $found = true;
+            }
+        }
+        
+        return $found;
+    }
 }

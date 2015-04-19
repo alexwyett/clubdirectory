@@ -67,6 +67,23 @@ class Contact extends DefaultController
     }
     
     /**
+     * @Route("/contact/{id}/email/{eid}", name="contact_email_get", defaults={"_format": "_json"})
+     * @Method("GET")
+     * 
+     * @param integer $id  Contact Id
+     * @param integer $eid Email Id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getEmailAction($id, $eid)
+    {
+        return $this->getContactService()->getContactAndEmailById(
+            $id,
+            $eid
+        )->toArray();
+    }
+    
+    /**
      * @Route("/contact/{id}/email", name="contact_email_create")
      * @Method("POST")
      * 
@@ -78,12 +95,20 @@ class Contact extends DefaultController
      */
     public function addEmailAction($id)
     {
-        $this->getContactService()->addEmail(
+        $email = $this->getContactService()->addEmail(
             $this->getContactService()->getEntityById($id),
             $this->getPostData(true)
         );
         
-        return $this->okResponse(201);
+        return $this->createdResponse(
+            $this->generateUrl(
+                'contact_email_get',
+                array(
+                    'id' => $id,
+                    'eid' => $email->getId()
+                )
+            )
+        );
     }
     
     /**
@@ -108,6 +133,23 @@ class Contact extends DefaultController
     }
     
     /**
+     * @Route("/contact/{id}/telephonenumber/{nid}", name="contact_telephonenumber_get", defaults={"_format": "_json"})
+     * @Method("GET")
+     * 
+     * @param integer $id  Contact Id
+     * @param integer $nid Number Id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getNumberAction($id, $nid)
+    {
+        return $this->getContactService()->getContactAndNumberById(
+            $id,
+            $nid
+        )->toArray();
+    }
+    
+    /**
      * @Route("/contact/{id}/telephonenumber", name="contact_telephonenumber_create")
      * @Method("POST")
      * 
@@ -119,12 +161,20 @@ class Contact extends DefaultController
      */
     public function addNumberAction($id)
     {
-        $this->getContactService()->addNumber(
+        $number = $this->getContactService()->addNumber(
             $this->getContactService()->getEntityById($id),
             $this->getPostData(true)
         );
         
-        return $this->okResponse(201);
+        return $this->createdResponse(
+            $this->generateUrl(
+                'contact_telephonenumber_get',
+                array(
+                    'id' => $id,
+                    'nid' => $number->getId()
+                )
+            )
+        );
     }
     
     /**

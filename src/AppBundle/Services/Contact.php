@@ -57,6 +57,26 @@ class Contact extends Base
     /**
      * Return an email by its id
      * 
+     * @param integer $id  Id
+     * @param integer $eid Email Id
+     * 
+     * @return \AppBundle\Entity\Email
+     */
+    public function getContactAndEmailById($id, $eid)
+    {
+        $contact = $this->getEntityById($id);
+        foreach ($contact->getContactEmail() as $email) {
+            if ($email->getId() == $eid) {
+                return $email;
+            }
+        }
+        
+        throw new EntityNotFoundException('Email not found', -1);
+    }
+    
+    /**
+     * Return an email by its id
+     * 
      * @param integer $id Id
      * 
      * @return \AppBundle\Entity\Email
@@ -88,6 +108,28 @@ class Contact extends Base
         return $number;
     }
     
+    
+    
+    /**
+     * Return an phone number by its id
+     * 
+     * @param integer $id  Id
+     * @param integer $nid Number Id
+     * 
+     * @return \AppBundle\Entity\TelephoneNumber
+     */
+    public function getContactAndNumberById($id, $nid)
+    {
+        $contact = $this->getEntityById($id);
+        foreach ($contact->getTelephoneNumber() as $num) {
+            if ($num->getId() == $nid) {
+                return $num;
+            }
+        }
+        
+        throw new EntityNotFoundException('Telephone number not found', -1);
+    }
+    
     /**
      * Add an email address to a contact
      * 
@@ -114,9 +156,15 @@ class Contact extends Base
             $this->validateAndPersist($email);
             $contact->addContactEmail($email);
             $this->getEm()->flush();
-        }
         
-        return $contact;
+            return $email;
+        } else {
+            foreach ($contact->getContactEmail() as $email) {
+                if ($email->getEmail() == $request->email) {
+                    return $email;
+                }
+            }
+        }
     }
     
     /**
@@ -161,14 +209,25 @@ class Contact extends Base
     {
         $number = new \AppBundle\Entity\Telephone();
         $this->populateObject($number, $request);
-        $number->setContact($contact);
-        $this->validateAndPersist($number);
         
-        $contact->addContactTelephone($number);
-        $this->getEm()->persist($contact);
-        $this->getEm()->flush();
+        if (!$contact->contactHasNumber($number->getTelephoneNumber(), $number->getTelephoneNumberType())) {
+            $number->setContact($contact);
+            $this->validateAndPersist($number);
+
+            $contact->addContactTelephone($number);
+            $this->getEm()->persist($contact);
+            $this->getEm()->flush();
         
-        return $contact;
+            return $number;
+        } else {
+            foreach ($contact->getContactTelephone() as $num) {
+                if ($num->getTelephoneNumber() == $number->getTelephoneNumber()
+                    && $num->getTelephoneNumberType() == $number->getTelephoneNumberType()
+                ) {
+                    return $num;
+                }
+            }
+        }
     }
     
     /**
