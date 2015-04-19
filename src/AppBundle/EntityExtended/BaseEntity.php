@@ -54,7 +54,7 @@ class BaseEntity extends Base
             
             break;
         case 'Contact':
-            $data['title'] = $this->getTitle()->getTitle();
+            $data['title'] = $this->getTitle()->toArray();
             $data['firstName'] = $this->getFirstName();
             $data['surname'] = $this->getSurname();
             $data['role'] = $this->getRole();
