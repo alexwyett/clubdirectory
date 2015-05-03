@@ -1,7 +1,7 @@
 ref,line1,line2,line3,town,county,postcode,longitude,latitude
-address-sportspark,Sportspark,University of East Anglia,,Norwich,Norfolk,NR4 7TJ,52.624459,1.240864
-address-blofield,Margaret Harker Hall,Yarmouth Road,,Norwich,Norfolk,NR13 4LE,52.632301,1.431169
-address-townclose,Town Close Prep School,14 Ipswich Road,,Norwich,Norfolk,NR2 2LR,52.618785,1.283584
-address-loddon,Hobart High School,Kittens Lane,,Loddon,Norfolk,NR14 6JU,52.532775,1.480437
-address-hethersett,Hethersett Old Hall School,,Hethersett,Norwich,Norfolk,NR9 3DW,52.592198,1.175907
-address-pangle,Pangle Cottage,Church Path,Wretton,King's Lynn,Norfolk,PE33 9QR,52.5701372,0.4900683
+address-sportspark,Sportspark,University of East Anglia,,Norwich,Norfolk,NR4 7TJ,1.240864,52.624459
+address-blofield,Margaret Harker Hall,Yarmouth Road,,Norwich,Norfolk,NR13 4LE,1.431169,52.632301
+address-townclose,Town Close Prep School,14 Ipswich Road,,Norwich,Norfolk,NR2 2LR,1.283584,52.618785
+address-loddon,Hobart High School,Kittens Lane,,Loddon,Norfolk,NR14 6JU,1.480437,52.532775
+address-hethersett,Hethersett Old Hall School,,Hethersett,Norwich,Norfolk,NR9 3DW,1.175907,52.592198
+address-pangle,Pangle Cottage,Church Path,Wretton,King's Lynn,Norfolk,PE33 9QR,0.4900683,52.5701372

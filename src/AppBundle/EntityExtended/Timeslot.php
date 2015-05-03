@@ -12,8 +12,8 @@ class Timeslot
     {
         return array(
             'id' => $this->getId(),
-            'from' => $this->getFromtime(),
-            'till' => $this->getTilltime(),
+            'fromTime' => $this->getFromtime(),
+            'tillTime' => $this->getTilltime(),
             'description' => $this->getDescription(),
             'day' => $this->getTimeslotDay()->toArray()
         );
