@@ -1,2 +1,23 @@
 ref,firstName,surname,title,role,private,published,authorised,address
-contact-SOS1,Alex,Wyett,REF-title-mr,President,0,1,1,REF-address-pangle
+contact-1,Mandy,Driver,REF-title-mrs,Secretary & Match Secretary,0,1,1,null
+contact-2,Nick,Saunders,REF-title-mr,Secretary,0,1,1,null
+contact-3,Lindsey,Howlett,REF-title-mrs,Match Secretary,0,1,1,null
+contact-4,Jeremey,Howlett,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-5,Rick,Thorne,REF-title-mr,Secretary,0,1,1,null
+contact-6,Peter,Evans,REF-title-mr,Match Secretary,0,1,1,null
+contact-7,Sandra,Robinson,REF-title-mrs,Secretary & Match Secretary,0,1,1,null
+contact-8,Louise,Cuyler,REF-title-ms,Secretary & Match Secretary,0,1,1,null
+contact-9,Kevin,Barber,REF-title-mr,Secretary,0,1,1,null
+contact-10,Peter,Mahoney,REF-title-mr,Match Secretary,0,1,1,null
+contact-11,Marilyn,Chittock,REF-title-mrs,Secretary & Match Secretary,0,1,1,null
+contact-12,Rob,Hetherington,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-13,Heather,Burlingham,REF-title-mrs,Secretary & Match Secretary,0,1,1,null
+contact-14,Paul,White,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-15,Justin,Gerrard,REF-title-mr,Match Secretary,0,1,1,null
+contact-16,James,Ruthen,REF-title-mr,Secretary,0,1,1,null
+contact-17,Robert,Green,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-18,Tim,Jarvis,REF-title-mr,Secretary,0,1,1,null
+contact-19,Neil,Parfitt,REF-title-mr,Match Secretary,0,1,1,null
+contact-20,James,Tomlinson,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-21,Simon,Watkins,REF-title-mr,Secretary & Match Secretary,0,1,1,null
+contact-22,Steve,Thacker,REF-title-mr,Secretary & Match Secretary,0,1,1,null

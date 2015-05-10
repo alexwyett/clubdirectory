@@ -1,4 +1,15 @@
 ref,fromTime,tillTime,timeslotDay,description
+timeslot-monclub,,,REF-timeslotday-MON,Club Night
+timeslot-monmatch,,,REF-timeslotday-MON,Match Night
+timeslot-tuesclub,,,REF-timeslotday-TUE,Club Night
+timeslot-tuesmatch,,,REF-timeslotday-TUE,Match Night
+timeslot-wedclub,,,REF-timeslotday-WED,Club Night
+timeslot-wedmatch,,,REF-timeslotday-WED,Match Night
+timeslot-thursdayclub,,,REF-timeslotday-THU,Club Night
+timeslot-thursdaymatch,,,REF-timeslotday-THU,Match Night
+timeslot-friclub,,,REF-timeslotday-FRI,Club Night
+timeslot-frimatch,,,REF-timeslotday-FRI,Match Night
+timeslot-sunmatch,,,REF-timeslotday-SUN,Match Night
 timeslot-1,7.00pm,9.00pm,REF-timeslotday-WED,Club Night
 timeslot-1a,7.00pm,9.00pm,REF-timeslotday-WED,Match Night
 timeslot-2,7.00pm,9.00pm,REF-timeslotday-WED,Club Night

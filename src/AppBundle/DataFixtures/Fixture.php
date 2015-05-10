@@ -84,7 +84,8 @@ abstract class Fixture extends AbstractFixture
             //Save to the DB
             $manager->persist($object);
 
-            //Create a reference so we can reference this object from other fixtures
+            // Create a reference so we can reference this object 
+            // from other fixtures
             $this->addReference($line[0], $object);
         }
 
