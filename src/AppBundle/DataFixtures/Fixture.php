@@ -86,7 +86,9 @@ abstract class Fixture extends AbstractFixture
 
             // Create a reference so we can reference this object 
             // from other fixtures
-            $this->addReference($line[0], $object);
+            if ($line[0] !== null) {
+                $this->addReference($line[0], $object);
+            }
         }
 
         if ($flush) {
