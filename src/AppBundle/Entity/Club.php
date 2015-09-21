@@ -36,6 +36,11 @@ class Club extends \AppBundle\Entity\BaseEntity
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ClubLink", mappedBy="club")
      */
     private $clubLink;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ClubTeam", mappedBy="club")
+     */
+    private $clubTeam;
     /**
      * Constructor
      */
@@ -45,6 +50,7 @@ class Club extends \AppBundle\Entity\BaseEntity
         $this->clubTag = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clubContact = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clubLink = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clubTeam = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -223,5 +229,38 @@ class Club extends \AppBundle\Entity\BaseEntity
     public function getClubLink()
     {
         return $this->clubLink;
+    }
+
+    /**
+     * Add clubTeam
+     *
+     * @param \AppBundle\Entity\ClubTeam $clubTeam
+     * @return Club
+     */
+    public function addClubTeam(\AppBundle\Entity\ClubTeam $clubTeam)
+    {
+        $this->clubTeam[] = $clubTeam;
+
+        return $this;
+    }
+
+    /**
+     * Remove clubTeam
+     *
+     * @param \AppBundle\Entity\ClubTeam $clubTeam
+     */
+    public function removeClubTeam(\AppBundle\Entity\ClubTeam $clubTeam)
+    {
+        $this->clubTeam->removeElement($clubTeam);
+    }
+
+    /**
+     * Get clubTeam
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClubTeam()
+    {
+        return $this->clubTeam;
     }
 }

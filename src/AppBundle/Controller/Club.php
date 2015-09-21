@@ -424,11 +424,11 @@ class Club extends DefaultController
                 'dependancy' => array(
                     'mapping' => 'id',
                     'parent' => 'getClub',
-                    'entity' => 'AppBundle:ClubTypeClub',
+                    'entity' => 'AppBundle:ClubTag',
                     'dependancy' => array(
-                        'mapping' => 'shortName',
-                        'parent' => 'getClubTypeClub',
-                        'entity' => 'AppBundle:ClubType'
+                        'mapping' => 'name',
+                        'parent' => 'getClubTag',
+                        'entity' => 'AppBundle:Tag'
                     )
                 )
             )
